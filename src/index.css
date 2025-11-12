@@ -1,6 +1,6 @@
 body {
 padding: 50px;
-background-color: rgb(9, 41, 68);
+background-color: rgb(255, 255, 255);
 padding-bottom: 500px;
 
 }
@@ -9,6 +9,6 @@ h1 {
   }
 
   p {
-    color: yellow;
+    color: rgb(0, 0, 0);
       
   }
