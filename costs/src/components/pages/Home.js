@@ -1,9 +1,15 @@
+import styles from './Home.module.css';
+import savings from '../../img/savings.svg';
+import LinkButton from '../layout/LinkButton';
+
 function Home() {
     return (
-        <div>
-        <h1>Welcome to the Home Page</h1>
-        <p>This is the main landing page of the Costs application.</p>
-        </div>
+        <section className={styles.home_container}>
+        <h1>Bem-vindo ao <span className={styles.home_container_span}>Costs</span></h1>
+        <p className={styles.home_container_p}>Comece a gerenciar seus projetos agora mesmo!</p>
+       <LinkButton to="/newproject" text="Criar Projeto" />
+        <img className={styles.home_container_img} src={savings} alt="Costs" />
+        </section>
     );
     }
 
