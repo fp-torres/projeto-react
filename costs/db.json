@@ -15,23 +15,38 @@
       "id": "862e",
       "cost": 0,
       "services": []
+    },
+    {
+      "id": "3b7e",
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "be5d",
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "404c",
+      "cost": 0,
+      "services": []
     }
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Infra"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Desenvolvimento"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Designer"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Planejamento"
     }
   ]
