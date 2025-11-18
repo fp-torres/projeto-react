@@ -5,6 +5,7 @@ import Input from '../form/Input';
 import Select from '../form/Select';
 import SubmitButton from '../form/SubmitButton';
 
+
 function ProjectForm({ handleSubmit, btnText, projectData }) {
 
     const [categories, setCategories] = useState([]);
