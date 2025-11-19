@@ -12,51 +12,6 @@
       "services": []
     },
     {
-      "id": "862e",
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "3b7e",
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "be5d",
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "404c",
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "3dc9",
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "5a54",
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "945f",
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "b58b",
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "f224",
-      "cost": 0,
-      "services": []
-    },
-    {
       "id": "4283",
       "name": "Bitcoin",
       "budget": "22222",
@@ -75,11 +30,6 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "a676",
       "cost": 0,
       "services": []
     }
