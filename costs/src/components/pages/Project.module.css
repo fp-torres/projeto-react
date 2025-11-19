@@ -1,0 +1,49 @@
+.project_details {
+  margin-top: 2rem;
+}
+
+.project_details h1,
+.project_details h2,
+.project_details p {
+  margin-bottom: 0.5rem;
+}
+
+.project_details h1 {
+  background-color: #222;
+  color: #FFBB33;
+  padding: 0.4rem;
+}
+
+.project_details span {
+  font-weight: bold;
+}
+
+.details_container,
+.service_form_container {
+  border-bottom: 1px solid #7a7a7a;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background-color: #222;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  transition: 0.5s;
+  cursor: pointer;
+  max-height: 40px;
+  /* border: none; -> removido pois estava duplicado */
+}
+
+.btn:hover {
+  background-color: #FFBB33;
+  color: #222;
+}
+
+.project_info {
+  width: 100%;
+}
