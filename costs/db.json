@@ -19,13 +19,19 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 22222,
+      "cost": 26655,
       "services": [
         {
           "name": "Felipe Torres",
           "cost": "22222",
           "description": "fFFFGGGHH",
           "id": "69778ce8-5c55-467f-814a-1210419a766a"
+        },
+        {
+          "name": "Felipe Torres de Araujo",
+          "cost": "4433",
+          "description": "saffgghhjk",
+          "id": "ea6cc547-b8e2-4a7d-a032-5b507ff68e4f"
         }
       ]
     }
