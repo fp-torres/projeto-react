@@ -19,8 +19,15 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 0,
-      "services": []
+      "cost": 22222,
+      "services": [
+        {
+          "name": "Felipe Torres",
+          "cost": "22222",
+          "description": "fFFFGGGHH",
+          "id": "69778ce8-5c55-467f-814a-1210419a766a"
+        }
+      ]
     }
   ],
   "categories": [
