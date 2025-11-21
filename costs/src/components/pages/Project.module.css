@@ -1,49 +1,74 @@
 .project_details {
-  margin-top: 2rem;
+  padding: 2em;
+  width: 100%;
 }
 
-.project_details h1,
-.project_details h2,
-.project_details p {
-  margin-bottom: 0.5rem;
+/* Cards Container (Fundo Cinza Azulado) */
+.details_container,
+.service_form_container {
+  background-color: var(--secondary-color);
+  padding: 2em;
+  border-radius: 10px;
+  margin-bottom: 2em;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra para destacar do fundo */
 }
 
-.project_details h1 {
-  background-color: #222;
-  color: #FFBB33;
-  padding: 0.4rem;
+/* Linha de Cabeçalho (Título + Botão) */
+.header_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid #555; /* Linha separadora interna */
+    padding-bottom: 1em;
+}
+
+.project_details h1, 
+.project_details h2 {
+  color: var(--accent-color); /* Títulos Dourados */
+  margin: 0;
+}
+
+/* Informações do Projeto (Estilo Tabela/Grid) */
+.project_info {
+  width: 100%;
+}
+
+.info_item {
+    margin-bottom: 0.8em;
+    color: var(--text-secondary);
+    font-size: 1.1em;
 }
 
 .project_details span {
   font-weight: bold;
+  color: var(--text-color);
+  margin-right: 0.5em;
 }
 
-.details_container,
-.service_form_container {
-  border-bottom: 1px solid #7a7a7a;
-  margin-bottom: 1.2rem;
-  padding-bottom: 1.2rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
+/* Botões Personalizados */
 .btn {
-  background-color: #222;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border: none;
-  transition: 0.5s;
+  background-color: transparent; /* Botão Outline */
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 0.5em 1.2em;
+  border-radius: 5px;
   cursor: pointer;
-  max-height: 40px;
-  /* border: none; -> removido pois estava duplicado */
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  transition: 0.3s;
+  font-weight: bold;
 }
 
 .btn:hover {
-  background-color: #FFBB33;
-  color: #222;
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+  border-color: var(--accent-color);
 }
 
-.project_info {
-  width: 100%;
+/* Ajuste se não tiver serviços */
+.project_details p {
+    color: var(--text-secondary);
 }

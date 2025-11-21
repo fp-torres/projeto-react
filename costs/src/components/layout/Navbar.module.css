@@ -1,27 +1,71 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #333;
-    overflow: hidden;
-    padding: 1em;
+    width: 100%;
+    background-color: var(--secondary-color); /* Fundo cinza azulado */
+    padding: 1em 2em; /* Espaçamento interno */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5); /* Sombra suave para dar profundidade */
+    
+    /* Deixa a barra fixa no topo ao rolar */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Garante que ela fique acima de tudo */
+}
+
+/* Controla o tamanho do logo */
+.logo {
+    max-height: 50px; /* Ajuste conforme o tamanho real da sua imagem */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Logo cresce levemente */
 }
 
 .list {
     display: flex;
     list-style: none;
     align-items: center;
-    
+    gap: 2em; /* Espaço moderno entre os itens */
 }
+
 .item {
-    margin-right: 1em;
+    position: relative; /* Necessário para o efeito de sublinhado */
 }
 
 .item a {
     text-decoration: none;
-    color: #fff;
-    
-}
-.item a:hover {
-    color: #ffbb33;
+    color: var(--text-color); /* Branco/Cinza claro */
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    padding: 0.5em 0;
 }
 
+.item a:hover {
+    color: var(--accent-color); /* Amarelo Dourado */
+}
+
+/* --- Efeito de Sublinhado Animado (Magic Line) --- */
+.item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color); /* A linha será dourada */
+    transition: width 0.3s ease-in-out;
+}
+
+.item a:hover::after {
+    width: 100%; /* A linha cresce da esquerda para a direita */
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 768px) {
+    .list {
+        display: none; /* Em um projeto real, aqui entraria um Menu Hambúrguer */
+    }
+    /* Por enquanto, se quiser manter visível no mobile, tire o display:none acima
+       e use flex-direction: column */
+}

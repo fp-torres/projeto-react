@@ -1,13 +1,18 @@
 .newproject_container {
-    width: 450px;
+    width: 100%;
+    max-width: 600px; /* Um pouco mais largo que 450px */
     margin: 0 auto;
-    padding: 3em;
+    padding: 3em 1.5em;
+    text-align: center; /* Centraliza textos */
 }
 
 .newproject_container h1 {
     margin-bottom: 0.5em;
+    font-size: 2.5em;
+    color: var(--text-color);
 }
 
 .newproject_container p {
-    color: #7b7b7b;
+    color: var(--text-secondary);
+    margin-bottom: 2em;
 }

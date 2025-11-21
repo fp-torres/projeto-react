@@ -1,14 +1,21 @@
 .btn {
-    background-color: #222;
-    color: #fff;
-    padding: 0.7em 1.2em;
+    background-color: var(--accent-color); /* Dourado */
+    color: var(--secondary-color); /* Texto escuro para contraste */
+    padding: 0.8em 2em;
     text-decoration: none;
-    transition: 0.5s;
+    transition: 0.3s ease;
     cursor: pointer;
     border: none;
-
+    border-radius: 50px; /* Botão "Pílula" */
+    font-weight: bold;
+    font-size: 1em;
+    display: block;
+    width: 100%; /* Ocupa a largura do pai (opcional, fica bom em forms) */
+    max-width: 200px;
 }
 
 .btn:hover {
-    color: #FFBB33;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 211, 105, 0.5);
+    background-color: #ffc107; /* Um tom levemente diferente */
 }

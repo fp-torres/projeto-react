@@ -1,92 +1,118 @@
 .project_card {
-    padding: 1em;
-    border: 1px solid #7a7a7a;
-    border-radius: 5px;
-    width: 24%;
-    margin: 0.5%;
-    background-color: #fff;
+    padding: 1.5em;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    width: 23%; /* Ajuste fino para caber 4 linhas */
+    margin: 1%;
+    background-color: var(--secondary-color); /* Fundo Cinza Azulado */
+    color: var(--text-color);
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project_card:hover {
+    transform: translateY(-5px); /* Flutua ao passar o mouse */
+    border-color: var(--accent-color); /* Borda dourada aparece */
 }
 
 .project_card h4 {
-    background-color: #222;
-    color: #ffbb33;
-    padding: 0.4em;
-    margin-bottom: 1.3em;
-    font-size: 1.3em;
-}
-
-.project_card p {
-    color: #7b7b7b;
+    background-color: transparent; /* Removi o fundo preto antigo */
+    color: var(--accent-color); /* Título Dourado */
     margin-bottom: 1em;
-}
-
-.project_card p span {
+    font-size: 1.4em;
     font-weight: bold;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5em;
 }
 
+.card_content p {
+    color: var(--text-secondary);
+    margin-bottom: 1em;
+    font-size: 0.95em;
+}
+
+.card_content span {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* --- Bolinhas de Categoria --- */
 .category_text {
     display: flex;
     align-items: center;
 }
 
-/* A regra cinza genérica */
-.category_text span {
+.category {
     display: block;
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #ccc; /* Cor padrão se não achar a categoria */
-    margin-right: 5px;
+    margin-right: 8px;
+    box-shadow: 0 0 5px currentColor; /* Brilho da própria cor */
 }
 
-/* --- CORREÇÃO AQUI --- */
-/* Tornamos essas regras mais específicas adicionando .category_text antes */
+.infra { background-color: #ffaebc; color: #ffaebc; }
+.desenvolvimento { background-color: #a0e7e5; color: #a0e7e5; }
+.design { background-color: #b4f8c8; color: #b4f8c8; }
+.planejamento { background-color: #fbe7c6; color: #fbe7c6; }
 
-.category_text .infra {
-    background-color: #ffaebc;
-}
-
-.category_text .desenvolvimento {
-    background-color: #a0e7e5;
-}
-
-.category_text .design {
-    background-color: #b4f8c8;
-}
-
-.category_text .planejamento {
-    background-color: #fbe7c6;
-}
-/* --------------------- */
-
+/* --- Botões de Ação --- */
 .project_card_actions {
-    margin-top: 1.2em;
+    margin-top: 1.5em;
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Separa os botões */
 }
 
-.project_card_actions button,
-.project_card_actions a {
+.btn_edit, .btn_remove {
     text-decoration: none;
-    border: 1px solid #222;
-    background-color: #fff;
-    color: #222;
+    border: none;
     font-size: 0.9em;
     padding: 0.6em 1em;
     cursor: pointer;
-    margin-right: 1em;
     display: flex;
     align-items: center;
-    transition: 0.5s; 
+    transition: 0.3s; 
     font-weight: bold;
+    border-radius: 5px;
 }
 
-.project_card_actions svg {
+.btn_edit svg, .btn_remove svg {
     margin-right: 0.5em;
 }
 
-.project_card_actions button:hover,
-.project_card_actions a:hover {
-    background-color: #222;
-    color: #ffbb33;
+/* Botão Editar (Estilo Outline) */
+.btn_edit {
+    background-color: transparent;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
+}
+
+.btn_edit:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background-color: rgba(255, 211, 105, 0.1);
+}
+
+/* Botão Excluir (Estilo Danger Suave) */
+.btn_remove {
+    background-color: transparent;
+    color: #ff6b6b; /* Vermelho suave */
+}
+
+.btn_remove:hover {
+    background-color: #ff6b6b;
+    color: #fff;
+}
+
+/* Responsividade dos Cards */
+@media (max-width: 1100px) {
+    .project_card { width: 48%; }
+}
+
+@media (max-width: 650px) {
+    .project_card { width: 100%; margin: 1em 0; }
 }

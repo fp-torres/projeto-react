@@ -1,19 +1,27 @@
 .form_control {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
 }
 
 .form_control label {
     margin-bottom: 0.6em;
     font-weight: bold;
+    color: var(--text-color);
 }
 
 .form_control select {
-    padding: 0.7em;
-    border-radius: 0
+    padding: 1em; /* Mesma altura do Input */
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: #FFF;
+    font-size: 1em;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
 }
 
-.form_control select::placeholder {
-    color: #7b7b7b;
+.form_control select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(255, 211, 105, 0.6);
 }

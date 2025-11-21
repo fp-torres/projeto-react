@@ -1,4 +1,8 @@
 .form {
-    width : 100%;
-    padding: 2em 0;
+    width: 100%;
+    text-align: left; /* Inputs alinhados à esquerda ficam melhor */
+    background-color: var(--secondary-color); /* Cartão de fundo para o form */
+    padding: 2em;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }

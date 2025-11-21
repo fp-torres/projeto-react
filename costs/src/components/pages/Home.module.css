@@ -1,34 +1,74 @@
 .home_container {
     width: 100%;
+    min-height: 80vh; /* Ocupa boa parte da tela */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Espalha: texto esq, img dir */
+    padding: 4em;
+    gap: 2rem; /* Espaço entre texto e imagem */
+}
+
+/* --- Lado Esquerdo (Textos) --- */
+.content_left {
+    flex: 1; /* Ocupa metade do espaço */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4em;
-
+    align-items: flex-start; /* Alinha textos à esquerda */
 }
 
-.home_container h1 {
-    font-size: 2.5em;
+.content_left h1 {
+    font-size: 3em;
     margin-bottom: 0.5em;
-    
+    line-height: 1.2;
 }
 
-.home_container h1 span {
-    color: #ffbb33;
-    padding: 0.2em;
-    background-color: #222;
-}
-.home_container p {
-    margin-bottom: 1.5em;
-    color: #7b7b7b;
+/* Efeito Dourado no "Costs" sem aquele fundo preto quadrado */
+.brand_span {
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
+.content_left p {
+    margin-bottom: 2em;
+    color: var(--text-secondary); /* Cinza claro */
+    font-size: 1.2em;
+    max-width: 500px; /* Não deixa a linha ficar muito comprida */
+}
 
+/* --- Lado Direito (Imagem) --- */
+.content_right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
 
-.home_container img {
-    width: 350px;
-    margin-top: 2em 0;
+.hero_image {
+    width: 450px;
     max-width: 100%;
-    height: auto;
+    animation: float 6s ease-in-out infinite; /* Animação de flutuar */
+}
+
+/* --- Animação da Imagem --- */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); } /* Sobe 20px */
+    100% { transform: translateY(0px); }
+}
+
+/* --- Responsividade (Mobile) --- */
+@media (max-width: 768px) {
+    .home_container {
+        flex-direction: column-reverse; /* Imagem em cima, texto embaixo no mobile? Ou padrão */
+        text-align: center;
+        padding: 2em;
+    }
+
+    .content_left {
+        align-items: center; /* Centraliza tudo no mobile */
+    }
+    
+    .hero_image {
+        width: 300px;
+        margin-bottom: 2em;
+    }
 }

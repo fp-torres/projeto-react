@@ -1,10 +1,8 @@
 import { useState } from 'react';
-
 import Input from '../form/Input';
 import SubmitButton from '../form/SubmitButton';
 
-// CORREÇÃO AQUI: O caminho correto para buscar o CSS na pasta vizinha
-import styles from '../project/ProjectForm.module.css';
+import styles from '../project/ProjectForm.module.css'; // Puxando o estilo Dark
 
 function ServiceForm({ handleSubmit, btnText, projectData }) {
     const [service, setService] = useState({});
@@ -15,12 +13,6 @@ function ServiceForm({ handleSubmit, btnText, projectData }) {
 
     function submit(e) {
         e.preventDefault();
-        
-        // Garante que o array de serviços existe antes de adicionar
-        if(!projectData.services) {
-            projectData.services = [];
-        }
-
         projectData.services.push(service);
         handleSubmit(projectData);
     }

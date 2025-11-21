@@ -2,17 +2,15 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-    justify-content: space-between;
+    padding: 0 2em; /* Um pouco mais de respiro lateral */
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.min-height {
-    min-height: 75%;
-
-
-}   
+.min_height {
+    min-height: 75vh; /* IMPORTANTE: Use vh (Viewport Height) */
+}
 
 .start {
     justify-content: flex-start;
@@ -20,6 +18,5 @@
 
 .column {
     flex-direction: column;
-    justify-self: start;
+    justify-content: flex-start; /* Garante alinhamento ao topo */
 }
-

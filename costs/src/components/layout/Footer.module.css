@@ -1,36 +1,83 @@
 .footer {
-    background-color: #222;
-    padding: 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #ffffff;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 3em 2em 1em 2em; /* Mais espaço em cima, menos embaixo */
+    margin-top: auto;
 }
 
-.social_list {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
+/* Container Principal (Infos e Ícones) */
+.footer_container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
-}
-.social_list li {
-    margin: 0 10px;
-}
-.social_list li:hover {
-    color: #ffbb33;
+    justify-content: space-between; /* Separa os dois blocos */
+    align-items: center; /* Alinha verticalmente pelo centro */
+    padding-bottom: 2em; /* Espaço antes da linha do copyright */
+    border-bottom: 1px solid #444; /* A linha de integração */
 }
 
-.social_list svg {
- font-size: 24px;
- cursor:pointer;
-
+/* --- Lado Esquerdo: Infos --- */
+.company_info h3 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
 }
 
-.copy_right {
-    margin-top: 10px;
+.highlight {
+    color: var(--accent-color);
 }
 
-.copy_right span {
-    color: #ffbb33;
+.company_info p {
+    color: var(--text-secondary);
+    margin-bottom: 0.3em;
+    font-size: 0.95em;
+}
+
+.email {
     font-weight: bold;
+    color: var(--text-color) !important;
+}
+
+/* --- Lado Direito: Ícones Horizontais --- */
+.social_list {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem; /* Espaço entre os ícones */
+}
+
+.social_list a {
+    color: var(--text-secondary);
+    font-size: 2rem; /* Ícones Grandes */
+    transition: 0.3s ease;
+    display: flex; /* Garante alinhamento perfeito do SVG */
+}
+
+.social_list a:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px); /* Efeito de subida leve */
+}
+
+/* --- Copyright (Abaixo da linha) --- */
+.copyright_container {
+    text-align: center;
+    padding-top: 1.5em; /* Espaço após a linha */
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+.copyright_container span {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 600px) {
+    .footer_container {
+        flex-direction: column; /* Um embaixo do outro no celular */
+        text-align: center;
+        gap: 2em;
+    }
+
+    .social_list {
+        justify-content: center;
+    }
 }
