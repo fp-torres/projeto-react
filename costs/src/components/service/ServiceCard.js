@@ -7,7 +7,6 @@ function ServiceCard({ id, name, cost, description, handleRemove }) {
     
     const remove = (e) => {
         e.preventDefault();
-        // Passamos o ID e o Custo para poder descontar do total do projeto
         handleRemove(id, cost);
     }
 
