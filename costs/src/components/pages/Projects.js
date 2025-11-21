@@ -12,7 +12,7 @@ import styles from './Projects.module.css';
 function Projects() {
     const [projects, setProjects] = useState([]);
     const [removeLoading, setRemoveLoading] = useState(false);
-    const [projectMessage, setProjectMessage] = useState(''); // Novo estado para mensagem de exclusão
+    const [projectMessage, setProjectMessage] = useState(''); 
 
     const location = useLocation();
     let message = '';
