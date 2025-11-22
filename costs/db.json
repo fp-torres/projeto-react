@@ -8,24 +8,25 @@
         "id": "3",
         "name": "Designer"
       },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "4283",
-      "name": "Bitcoin 2.0",
-      "budget": "1234567",
-      "category": {
-        "id": "1",
-        "name": "Infra"
-      },
-      "cost": 22222,
+      "cost": 46662,
       "services": [
         {
-          "name": "Felipe Torres",
+          "name": "teste",
+          "cost": "22220",
+          "description": "TESTE",
+          "id": "770c03a7-cf93-4512-af92-3186bf8966cb"
+        },
+        {
+          "name": "Estágiario",
+          "cost": "2220",
+          "description": "3333",
+          "id": "af76a26b-c11c-4ad5-a8c1-2d08f53dcefe"
+        },
+        {
+          "name": "Felipe Torres de Araujo",
           "cost": "22222",
-          "description": "fFFFGGGHH",
-          "id": "69778ce8-5c55-467f-814a-1210419a766a"
+          "description": "3333",
+          "id": "24f9dda9-dae2-47a4-ac93-4411f06b335b"
         }
       ]
     },
@@ -37,15 +38,72 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 222,
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "6279",
+      "name": "João",
+      "budget": "3456788",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": null,
       "services": [
         {
-          "name": "Felipe Torres",
-          "cost": "222",
-          "description": "TESTANDO",
-          "id": "2a1d648a-2812-4ead-9c24-3fe8a76d46ff"
+          "name": "Artur",
+          "cost": "22223345",
+          "description": "TESTE",
+          "id": "13ca9fd1-91ea-4ab5-9a5a-625d70e0561a"
+        },
+        {
+          "name": "Felipe Torres de Araujo",
+          "cost": "23232344545654",
+          "description": "TESTE",
+          "id": "73010f3c-9aaf-491e-9362-d25b34fff80d"
         }
       ]
+    },
+    {
+      "id": "85bb",
+      "name": "Felipe",
+      "budget": "3456789",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 33333,
+      "services": [
+        {
+          "name": "Felipe Torres de Araujo",
+          "cost": "33333",
+          "description": "3333",
+          "id": "1b54179d-762e-4f9f-9796-0dd95937a997"
+        }
+      ]
+    },
+    {
+      "id": "6a3e",
+      "name": "Estágiario",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "budget": "2345678",
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "7613",
+      "category": {
+        "id": "3",
+        "name": "Designer"
+      },
+      "budget": "654533",
+      "name": "Estágiario",
+      "cost": 0,
+      "services": []
     }
   ],
   "categories": [

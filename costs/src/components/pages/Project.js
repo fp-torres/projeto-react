@@ -2,7 +2,7 @@ import styles from './Project.module.css';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { BsPencil, BsPlusLg } from 'react-icons/bs'; // Importei ícones novos
+import { BsPencil, BsPlusLg } from 'react-icons/bs';
 
 import Loading from '../layout/Loading';
 import Container from '../layout/Container';
@@ -10,6 +10,7 @@ import ProjectForm from '../project/ProjectForm';
 import Message from '../layout/Message';
 import ServiceForm from '../service/ServiceForm';
 import ServiceCard from '../service/ServiceCard';
+import ProjectPieChart from '../project/ProjectPieChart'; // Gráfico de Pizza aqui!
 
 function Project() {
     const { id } = useParams();
@@ -59,43 +60,29 @@ function Project() {
 
     function createService(project) {
         setMessage(''); 
-
-        // Pega o último serviço adicionado pelo formulário
         const lastService = project.services[project.services.length - 1];
-        
         lastService.id = uuidv4();
-
         const lastServiceCost = lastService.cost;
         const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost);
 
-        // Validação de valor máximo
         if (newCost > parseFloat(project.budget)) {
             setMessage("Orçamento ultrapassado, verifique o valor do serviço!");
             setType("error");
-            project.services.pop(); // Remove o serviço errado do array
+            project.services.pop(); 
             return false;
         }
 
-        // Adiciona o custo do serviço ao total do projeto
         project.cost = newCost;
 
-        // Atualiza o projeto no backend
         fetch(`http://localhost:5001/projects/${project.id}`, {
             method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(project),
         })
         .then((resp) => resp.json())
         .then((data) => {
             setProject(data);       
-            
-            
-            // Atualiza a lista de serviços na tela
-            setServices(data.services); 
-            // ---------------------------------
-
+            setServices(data.services); // Atualizando lista visual
             setShowServiceForm(false);
             setMessage("Serviço adicionado com sucesso!");
             setType("success");
@@ -135,30 +122,39 @@ function Project() {
                         
                         {message && <Message type={type} msg={message} />}
                        
-                        {/* SEÇÃO 1: CARD DO PROJETO */}
+                        {/* SEÇÃO 1: CARD DO PROJETO + GRÁFICO DE PIZZA */}
                         <div className={styles.details_container}>
-                            <div className={styles.header_row}>
-                                <h1>Projeto: {project.name}</h1>
-                                <button onClick={toggleProjectForm} className={styles.btn}>
-                                    {!showProjectForm ? <><BsPencil /> Editar Projeto</> : 'Fechar'}
-                                </button>
+                            <div className={styles.details_content}>
+                                <div className={styles.header_row}>
+                                    <h1>Projeto: {project.name}</h1>
+                                    <button onClick={toggleProjectForm} className={styles.btn}>
+                                        {!showProjectForm ? <><BsPencil /> Editar Projeto</> : 'Fechar'}
+                                    </button>
+                                </div>
+                                
+                                {!showProjectForm ? (
+                                    <div className={styles.project_info}> 
+                                        <div className={styles.info_item}>
+                                            <span>Categoria:</span> {project.category.name}
+                                        </div>
+                                        <div className={styles.info_item}>
+                                            <span>Orçamento:</span> R$ {project.budget}
+                                        </div>
+                                        <div className={styles.info_item}>
+                                            <span>Total Utilizado:</span> R$ {project.cost}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className={styles.project_info}>
+                                       <ProjectForm handleSubmit={editPost} btnText="Concluir Edição" projectData={project} />
+                                    </div>
+                                )}
                             </div>
                             
-                            {!showProjectForm ? (
-                                <div className={styles.project_info}> 
-                                    <div className={styles.info_item}>
-                                        <span>Categoria:</span> {project.category.name}
-                                    </div>
-                                    <div className={styles.info_item}>
-                                        <span>Orçamento:</span> R$ {project.budget}
-                                    </div>
-                                    <div className={styles.info_item}>
-                                        <span>Total Utilizado:</span> R$ {project.cost}
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className={styles.project_info}>
-                                   <ProjectForm handleSubmit={editPost} btnText="Concluir Edição" projectData={project} />
+                            {/* AQUI ESTÁ O GRÁFICO DE PIZZA ESPECÍFICO DESTE PROJETO */}
+                            {!showProjectForm && (
+                                <div className={styles.details_chart}>
+                                    <ProjectPieChart budget={project.budget} cost={project.cost} />
                                 </div>
                             )}
                         </div>

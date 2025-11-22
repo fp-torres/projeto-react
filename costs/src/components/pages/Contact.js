@@ -3,29 +3,39 @@ import styles from './Contact.module.css';
 import Input from '../form/Input';
 import SubmitButton from '../form/SubmitButton';
 import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import SubmitMensage from '../alert/SubmitMensage';
 
 function Contact() {
     // Estado para guardar os dados do formulário
     const [form, setForm] = useState({ name: '', email: '', message: '' });
+    
+    // 1. NOVO ESTADO: Controla a mensagem de sucesso
+    const [message, setMessage] = useState('');
 
-    // Função para atualizar o estado quando digita
     function handleChange(e) {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
 
-    // Função de envio (simulação)
     function handleSubmit(e) {
-        e.preventDefault(); // Não recarrega a página
+        e.preventDefault();
+        
+        // Simulando envio...
         console.log(form);
-        alert(`Obrigado, ${form.name}! Sua mensagem foi enviada (simulação).`);
-        // Aqui entraria a integração com EmailJS ou Backend
+        
+        // 2. Define a mensagem de sucesso para exibir o componente
+        setMessage('Mensagem enviada com sucesso!');
+        
         setForm({ name: '', email: '', message: '' }); // Limpa o form
+
+        // (Opcional) Faz a mensagem sumir após 3 segundos
+        setTimeout(() => {
+            setMessage('');
+        }, 3000);
     }
 
     return (
         <section className={styles.contact_container}>
             
-            {/* Lado Esquerdo: Infos */}
             <div className={styles.info_side}>
                 <h1>Fale <span className={styles.highlight}>Conosco</span></h1>
                 <p style={{marginBottom: '2em', color: '#ccc'}}>
@@ -46,7 +56,6 @@ function Contact() {
                 </div>
             </div>
 
-            {/* Lado Direito: Formulário */}
             <div className={styles.form_side}>
                 <form onSubmit={handleSubmit}>
                     <Input 
@@ -67,7 +76,6 @@ function Contact() {
                         value={form.email}
                     />
 
-                    {/* Textarea manual pois não temos componente pronto */}
                     <div className={styles.textarea_control}>
                         <label htmlFor="message">Mensagem:</label>
                         <textarea 
@@ -81,8 +89,11 @@ function Contact() {
 
                     <SubmitButton text="Enviar Mensagem" />
                 </form>
+                  {message && <SubmitMensage msg={message} type="success" />}
             </div>
-
+            
+          
+            
         </section>
     );
 }

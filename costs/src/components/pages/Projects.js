@@ -6,6 +6,7 @@ import Container from '../layout/Container';
 import Loading from '../layout/Loading';
 import LinkButton from '../layout/LinkButton';
 import ProjectCard from '../project/ProjectCard';
+import CategoryBarChart from '../project/CategoryBarChart'; // <--- IMPORTAÇÃO CORRETA
 
 import styles from './Projects.module.css';
 
@@ -29,7 +30,6 @@ function Projects() {
             })
             .then((resp) => resp.json())
             .then((data) => {
-                console.log(data);
                 setProjects(data);
                 setRemoveLoading(true);
             })
@@ -45,7 +45,6 @@ function Projects() {
         .then((resp) => resp.json())
         .then(() => {
             setProjects(projects.filter((project) => project.id !== id));
-           
             setProjectMessage('Projeto removido com sucesso!');
         })
         .catch((err) => console.log(err));
@@ -58,11 +57,20 @@ function Projects() {
                 <LinkButton to="/newproject" text="Criar Projeto" />
             </div>
 
-            {/* Mensagem vinda do redirecionamento (Criar Projeto) */}
             {message && <Message type="success" msg={message} />}
-            
-            {/* Mensagem local (Exclusão) */}
             {projectMessage && <Message type="success" msg={projectMessage} />}
+
+            {/* --- AQUI ESTÁ A MUDANÇA: GRÁFICO DE BARRAS --- */}
+            {projects.length > 0 && (
+                <div className={styles.dashboard_section}>
+                    <CategoryBarChart projects={projects} />
+                </div>
+            )}
+            {/* ---------------------------------------------- */}
+
+            <div className={styles.list_header}>
+                <h2>Lista de Projetos</h2>
+            </div>
 
             <Container customClass="start">
                 {projects.length > 0 &&
@@ -79,7 +87,7 @@ function Projects() {
                 }
                 {!removeLoading && <Loading />}
                 {removeLoading && projects.length === 0 && (
-                    <p>Não há projetos cadastrados!</p>
+                    <p className={styles.empty_list}>Não há projetos cadastrados!</p>
                 )}
             </Container>
         </div>
