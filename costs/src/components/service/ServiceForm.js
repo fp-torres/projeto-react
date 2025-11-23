@@ -3,6 +3,7 @@ import Input from '../form/Input';
 import SubmitButton from '../form/SubmitButton';
 
 import styles from '../project/ProjectForm.module.css'; // Puxando o estilo Dark
+import InputCurrency from '../form/InputCurrency';
 
 function ServiceForm({ handleSubmit, btnText, projectData }) {
     const [service, setService] = useState({});
@@ -26,7 +27,7 @@ function ServiceForm({ handleSubmit, btnText, projectData }) {
                 placeholder="Insira o nome do serviço"
                 handleOnChange={handleChange}
             />
-            <Input
+            <InputCurrency
                 type="number"
                 text="Custo do Serviço"
                 name="cost"

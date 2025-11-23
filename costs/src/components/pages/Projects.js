@@ -7,7 +7,7 @@ import Loading from '../layout/Loading';
 import LinkButton from '../layout/LinkButton';
 import ProjectCard from '../project/ProjectCard';
 import CategoryBarChart from '../project/CategoryBarChart'; 
-import ProjectSearchBar from '../project/ProjectSearchBar'; // <--- 1. IMPORTAÇÃO
+import ProjectSearchBar from '../project/ProjectSearchBar';
 
 import styles from './Projects.module.css';
 
@@ -15,7 +15,7 @@ function Projects() {
     const [projects, setProjects] = useState([]);
     const [removeLoading, setRemoveLoading] = useState(false);
     const [projectMessage, setProjectMessage] = useState('');
-    const [searchTerm, setSearchTerm] = useState(''); // <--- 2. ESTADO DA BUSCA
+    const [searchTerm, setSearchTerm] = useState('');
 
     const location = useLocation();
     let message = '';
@@ -52,12 +52,10 @@ function Projects() {
         .catch((err) => console.log(err));
     }
 
-    // <--- 3. FUNÇÃO DE CAPTURA DA DIGITAÇÃO
     function handleSearch(e) {
         setSearchTerm(e.target.value.toLowerCase());
     }
 
-    // <--- 4. FILTRAGEM DA LISTA (Isso garante que o filtro funcione em tempo real)
     const displayedProjects = projects.filter((project) => 
         project.name.toLowerCase().includes(searchTerm)
     );
@@ -72,7 +70,6 @@ function Projects() {
             {message && <Message type="success" msg={message} />}
             {projectMessage && <Message type="success" msg={projectMessage} />}
 
-            {/* GRÁFICO DE BARRAS (Continua mostrando todos os projetos) */}
             {projects.length > 0 && (
                 <div className={styles.dashboard_section}>
                     <CategoryBarChart projects={projects} />
@@ -83,7 +80,6 @@ function Projects() {
                 <h2>Lista de Projetos</h2>
             </div>
             
-            {/* <--- 5. BARRA DE BUSCA AQUI (Fora do Container dos cards para não quebrar o layout) */}
             <ProjectSearchBar handleSearch={handleSearch} />
 
             <Container customClass="start">
@@ -94,6 +90,9 @@ function Projects() {
                             name={project.name}
                             budget={project.budget}
                             category={project.category ? project.category.name : 'Indefinido'}
+                            start_date={project.start_date} 
+                             end_date={project.end_date}     
+                             status={project.status}
                             key={project.id}
                             handleRemove={removeProject}
                         />
@@ -102,7 +101,6 @@ function Projects() {
                 
                 {!removeLoading && <Loading />}
                 
-                {/* Mensagem ajustada para quando a busca não retorna nada */}
                 {removeLoading && displayedProjects.length === 0 && (
                     <p className={styles.empty_list}>
                         {searchTerm ? 'Nenhum projeto encontrado para sua busca.' : 'Não há projetos cadastrados!'}

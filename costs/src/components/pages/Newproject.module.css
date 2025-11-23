@@ -1,9 +1,9 @@
 .newproject_container {
     width: 100%;
-    max-width: 600px; /* Um pouco mais largo que 450px */
+    max-width: 600px;
     margin: 0 auto;
     padding: 3em 1.5em;
-    text-align: center; /* Centraliza textos */
+    text-align: center;
 }
 
 .newproject_container h1 {

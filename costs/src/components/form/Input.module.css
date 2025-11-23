@@ -1,18 +1,18 @@
 .form_control {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.5em; /* Mais respiro */
+    margin-bottom: 1.5em;
 }
 
 .form_control label {
     margin-bottom: 0.6em;
     font-weight: bold;
-    color: var(--text-color); /* Garante que o label apareça no fundo escuro */
+    color: var(--text-color);
 }
 
 .form_control input {
-    padding: 1em; /* Input mais alto e clicável */
-    border-radius: 8px; /* Borda arredondada moderna */
+    padding: 1em;
+    border-radius: 8px;
     border: 1px solid transparent;
     background-color: #FFF; 
     color: #222;
@@ -22,12 +22,14 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.form_control input::placeholder {
-    color: #aaa;
-}
-
-/* Efeito Glow Dourado ao clicar */
 .form_control input:focus {
     border-color: var(--accent-color);
     box-shadow: 0 0 8px rgba(255, 211, 105, 0.6);
+}
+
+/* Remove setas do input number */
+.form_control input::-webkit-outer-spin-button,
+.form_control input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

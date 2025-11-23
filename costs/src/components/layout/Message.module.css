@@ -1,9 +1,9 @@
 .message {
     width: 100%;
     padding: 1em;
-    margin: 0 auto 2em auto;
+    margin: 1em 0 2em 0;
     text-align: center;
-    border-radius: 10px; /* Arredondado */
+    border-radius: 10px;
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     animation: fade-in 0.5s ease;
@@ -12,13 +12,13 @@
 .success {
     color: #155724;
     background-color: #d4edda;
-    border-left: 5px solid #28a745; /* Detalhe lateral verde */
+    border-left: 5px solid #28a745;
 }
 
 .error {
     color: #721c24;
     background-color: #f8d7da;
-    border-left: 5px solid #dc3545; /* Detalhe lateral vermelho */
+    border-left: 5px solid #dc3545;
 }
 
 @keyframes fade-in {

@@ -11,6 +11,10 @@ function Input({ type, text, name, placeholder, handleOnChange, value }) {
                 placeholder={placeholder}
                 onChange={handleOnChange}
                 value={value}
+                // Permite centavos se for número
+                step={type === "number" ? "0.01" : null} 
+                // Evita mudar o número ao rodar o scroll do mouse (UX melhor)
+                onWheel={(e) => e.target.blur()} 
             />
         </div>
     );

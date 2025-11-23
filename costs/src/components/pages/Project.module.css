@@ -3,7 +3,6 @@
   width: 100%;
 }
 
-/* Cards Container (Fundo Cinza Azulado) */
 .details_container,
 .service_form_container {
   background-color: var(--secondary-color);
@@ -11,28 +10,24 @@
   border-radius: 10px;
   margin-bottom: 2em;
   width: 100%;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra para destacar do fundo */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Linha de Cabeçalho (Título + Botão) */
 .header_row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5em;
-    border-bottom: 1px solid #555; /* Linha separadora interna */
+    border-bottom: 1px solid #555;
     padding-bottom: 1em;
+    flex-wrap: wrap; /* Permite quebrar linha se o título for grande */
+    gap: 1em;
 }
 
 .project_details h1, 
 .project_details h2 {
-  color: var(--accent-color); /* Títulos Dourados */
+  color: var(--accent-color);
   margin: 0;
-}
-
-/* Informações do Projeto (Estilo Tabela/Grid) */
-.project_info {
-  width: 100%;
 }
 
 .info_item {
@@ -47,9 +42,9 @@
   margin-right: 0.5em;
 }
 
-/* Botões Personalizados */
+/* Botões Outline */
 .btn {
-  background-color: transparent; /* Botão Outline */
+  background-color: transparent;
   color: var(--text-color);
   border: 1px solid var(--text-color);
   padding: 0.5em 1.2em;
@@ -68,7 +63,7 @@
   border-color: var(--accent-color);
 }
 
-/* Ajuste se não tiver serviços */
-.project_details p {
-    color: var(--text-secondary);
+@media (max-width: 600px) {
+    .project_details { padding: 1em; }
+    .header_row { flex-direction: column; text-align: center; }
 }

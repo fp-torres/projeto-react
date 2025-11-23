@@ -7,7 +7,7 @@
 
 .search_container input {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* Área de toque maior */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;

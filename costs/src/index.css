@@ -6,11 +6,11 @@
   --text-color: #EEEEEE;      /* Texto principal */
   --text-secondary: #a5a5a5;  /* Texto secundário/placeholder */
   
-  /* --- Cores de Feedback (Sucesso/Erro) --- */
+  /* --- Cores de Feedback --- */
   --success-color: #00ADB5;   /* Ciano para mensagens de sucesso */
   --error-color: #F05454;     /* Vermelho suave para erros */
   
-  /* --- Fontes e Tamanhos --- */
+  /* --- Fontes --- */
   --font-main: 'Open Sans', sans-serif;
 }
 
@@ -18,27 +18,25 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: var(--font-main); /* Usando a variável */
+  font-family: var(--font-main);
 }
 
 html, body, #root {
   height: 100%;
-  background-color: var(--bg-color); /* Usando a variável */
+  background-color: var(--bg-color);
   color: var(--text-color);
 }
 
-/* Dica Extra: Removemos as bolinhas de listas e sublinhados de links globalmente
-   pois vamos estilizar isso nos componentes */
 ul {
   list-style: none;
 }
 
 a {
   text-decoration: none;
-  color: inherit; /* Herda a cor do pai */
+  color: inherit;
   transition: 0.3s;
 }
 
 a:hover {
-  color: var(--accent-color); /* Efeito global de hover */
+  color: var(--accent-color);
 }

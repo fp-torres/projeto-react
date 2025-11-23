@@ -1,19 +1,20 @@
 .btn {
     background-color: transparent;
     color: var(--text-color);
-    border: 2px solid var(--accent-color); /* Borda Dourada */
+    border: 2px solid var(--accent-color);
     padding: 0.8em 2em;
     text-decoration: none;
-    border-radius: 50px; /* Borda arredondada moderna */
+    border-radius: 50px;
     font-weight: bold;
     font-size: 1rem;
     transition: all 0.3s ease-in-out;
-    display: inline-block; /* Garante que paddings funcionem bem */
+    display: inline-block;
+    text-align: center;
 }
 
 .btn:hover {
-    background-color: var(--accent-color); /* Preenche com Dourado no hover */
-    color: var(--secondary-color); /* Texto fica escuro para contraste */
-    transform: scale(1.05); /* Cresce um pouquinho */
-    box-shadow: 0 0 15px rgba(255, 211, 105, 0.4); /* Brilho suave */
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 211, 105, 0.4);
 }

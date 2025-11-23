@@ -1,83 +1,85 @@
 .footer {
     background-color: var(--secondary-color);
     color: var(--text-color);
-    padding: 3em 2em 1em 2em; /* Mais espaço em cima, menos embaixo */
+    padding: 1.5em 2em;
     margin-top: auto;
+    font-size: 0.9em;
 }
 
-/* Container Principal (Infos e Ícones) */
 .footer_container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* Separa os dois blocos */
-    align-items: center; /* Alinha verticalmente pelo centro */
-    padding-bottom: 2em; /* Espaço antes da linha do copyright */
-    border-bottom: 1px solid #444; /* A linha de integração */
+    justify-content: space-between;
+    align-items: center; 
 }
 
-/* --- Lado Esquerdo: Infos --- */
+.company_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .company_info h3 {
-    font-size: 1.8em;
-    margin-bottom: 0.5em;
+    font-size: 1.4em;
+    margin-bottom: 0.2em;
 }
 
-.highlight {
-    color: var(--accent-color);
-}
+.highlight { color: var(--accent-color); }
 
 .company_info p {
     color: var(--text-secondary);
-    margin-bottom: 0.3em;
-    font-size: 0.95em;
+    margin: 0;
+    font-size: 0.85em;
+    line-height: 1.4;
 }
 
 .email {
     font-weight: bold;
     color: var(--text-color) !important;
+    margin-top: 0.3em !important;
 }
 
-/* --- Lado Direito: Ícones Horizontais --- */
+.right_section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.8em;
+}
+
 .social_list {
     display: flex;
-    list-style: none;
-    gap: 1.5rem; /* Espaço entre os ícones */
+    gap: 1rem;
 }
 
 .social_list a {
     color: var(--text-secondary);
-    font-size: 2rem; /* Ícones Grandes */
+    font-size: 1.4rem;
     transition: 0.3s ease;
-    display: flex; /* Garante alinhamento perfeito do SVG */
+    display: flex;
 }
 
 .social_list a:hover {
     color: var(--accent-color);
-    transform: translateY(-5px); /* Efeito de subida leve */
+    transform: translateY(-3px);
 }
 
-/* --- Copyright (Abaixo da linha) --- */
-.copyright_container {
-    text-align: center;
-    padding-top: 1.5em; /* Espaço após a linha */
-    font-size: 0.85em;
+.copyright {
+    font-size: 0.75em;
     color: var(--text-secondary);
+    opacity: 0.7;
 }
 
-.copyright_container span {
+.copyright span {
     font-weight: bold;
     color: var(--accent-color);
 }
 
-/* --- Responsividade --- */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     .footer_container {
-        flex-direction: column; /* Um embaixo do outro no celular */
+        flex-direction: column;
         text-align: center;
-        gap: 2em;
+        gap: 1.5em;
     }
-
-    .social_list {
-        justify-content: center;
-    }
+    .right_section { align-items: center; }
 }

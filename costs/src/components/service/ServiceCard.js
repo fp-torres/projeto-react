@@ -1,4 +1,4 @@
-import styles from '../project/ProjectCard.module.css'; // Reutilizando o estilo novo
+import styles from '../project/ProjectCard.module.css'; // Reutilizando o estilo atualizado
 import { BsFillTrashFill } from 'react-icons/bs';
 
 function ServiceCard({ id, name, cost, description, handleRemove }) {
@@ -8,20 +8,32 @@ function ServiceCard({ id, name, cost, description, handleRemove }) {
         handleRemove(id, cost);
     }
 
+    const formatCurrency = (value) => {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }).format(value);
+    }
+
     return (
         <div className={styles.project_card}>
             <h4>{name}</h4>
             
-            {/* Agrupamos o conteúdo igual fizemos no ProjectCard */}
             <div className={styles.card_content}>
                 <p>
-                    <span>Custo:</span> R$ {cost}
+                    <span>Custo:</span> {formatCurrency(cost)}
                 </p>
-                <p>{description}</p>
+                
+                {/* Alteração aqui: Bloco específico para descrição */}
+                <div className={styles.service_desc}>
+                    <span>Descrição:</span>
+                    <p style={{ margin: 0, fontStyle: 'italic', color: '#ccc' }}>
+                        {description}
+                    </p>
+                </div>
             </div>
 
             <div className={styles.project_card_actions}>
-                {/* Usamos a classe btn_remove para ficar vermelho e bonito */}
                 <button onClick={remove} className={styles.btn_remove}>
                     <BsFillTrashFill /> Excluir
                 </button>

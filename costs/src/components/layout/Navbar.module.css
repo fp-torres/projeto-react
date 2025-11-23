@@ -1,51 +1,58 @@
 .navbar {
     width: 100%;
-    background-color: var(--secondary-color); /* Fundo cinza azulado */
-    padding: 1em 2em; /* Espaçamento interno */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5); /* Sombra suave para dar profundidade */
-    
-    /* Deixa a barra fixa no topo ao rolar */
+    background-color: var(--secondary-color);
+    padding: 1em 2em;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
-    z-index: 1000; /* Garante que ela fique acima de tudo */
+    z-index: 1000;
 }
 
-/* Controla o tamanho do logo */
+.navbar > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+}
+
 .logo {
-    max-height: 50px; /* Ajuste conforme o tamanho real da sua imagem */
+    max-height: 50px;
     width: auto;
     transition: transform 0.3s ease;
 }
 
 .logo:hover {
-    transform: scale(1.1); /* Logo cresce levemente */
+    transform: scale(1.1);
 }
 
+/* Menu Desktop */
 .list {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 2em; /* Espaço moderno entre os itens */
-}
-
-.item {
-    position: relative; /* Necessário para o efeito de sublinhado */
+    gap: 2em;
 }
 
 .item a {
     text-decoration: none;
-    color: var(--text-color); /* Branco/Cinza claro */
+    color: var(--text-color);
     font-weight: bold;
     font-size: 1.1em;
     transition: color 0.3s ease;
     padding: 0.5em 0;
+    position: relative;
 }
 
 .item a:hover {
-    color: var(--accent-color); /* Amarelo Dourado */
+    color: var(--accent-color);
 }
 
-/* --- Efeito de Sublinhado Animado (Magic Line) --- */
 .item a::after {
     content: '';
     position: absolute;
@@ -53,19 +60,65 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--accent-color); /* A linha será dourada */
+    background-color: var(--accent-color);
     transition: width 0.3s ease-in-out;
 }
 
 .item a:hover::after {
-    width: 100%; /* A linha cresce da esquerda para a direita */
+    width: 100%;
 }
 
-/* Responsividade para Mobile */
+.mobile_icon {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-left: 1em;
+}
+
+/* Responsividade Mobile */
 @media (max-width: 768px) {
-    .list {
-        display: none; /* Em um projeto real, aqui entraria um Menu Hambúrguer */
+    .logo_container {
+        width: 100%; 
+        justify-content: space-between; 
     }
-    /* Por enquanto, se quiser manter visível no mobile, tire o display:none acima
-       e use flex-direction: column */
+
+    .mobile_icon {
+        display: block;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: -100%; /* Começa escondido na direita */
+        left: auto;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--secondary-color);
+        transition: right 0.5s ease;
+        text-align: center;
+        padding-top: 2em;
+        opacity: 0;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5); 
+        border-left: 1px solid #444;
+    }
+
+    .list.active {
+        right: 0; /* Desliza para dentro */
+        opacity: 1;
+    }
+
+    .item {
+        width: 100%;
+        padding: 1.5em 0;
+    }
+
+    .item a {
+        font-size: 1.5em;
+        display: block;
+    }
 }

@@ -26,8 +26,15 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 22.22,
+      "services": [
+        {
+          "name": "Estágiario",
+          "cost": 22.22,
+          "description": "TESTE",
+          "id": "9ea28981-f892-43a7-871f-74766c6cfa36"
+        }
+      ]
     },
     {
       "id": "6279",
@@ -51,7 +58,8 @@
           "description": "TESTE",
           "id": "73010f3c-9aaf-491e-9362-d25b34fff80d"
         }
-      ]
+      ],
+      "status": "Concluído"
     },
     {
       "id": "6a3e",
@@ -62,7 +70,10 @@
       },
       "budget": "2345678",
       "cost": 0,
-      "services": []
+      "services": [],
+      "end_date": "2025-09-10",
+      "start_date": "2025-09-03",
+      "status": "Em Andamento"
     },
     {
       "id": "7613",
@@ -74,6 +85,90 @@
       "name": "Estágiario",
       "cost": 0,
       "services": []
+    },
+    {
+      "id": "c4a0",
+      "name": "TESTE 8",
+      "start_date": "2025-11-04",
+      "end_date": "2026-04-02",
+      "budget": "227778",
+      "category": {
+        "id": "3",
+        "name": "Designer"
+      },
+      "status": "Em Andamento",
+      "cost": 23445,
+      "services": [
+        {
+          "name": "Felipe",
+          "cost": "23445",
+          "description": "TESTE",
+          "id": "51f1030d-34f1-4255-8af6-17760959f76e"
+        }
+      ]
+    },
+    {
+      "id": "0bfd",
+      "name": "Notas Bot",
+      "start_date": "2025-11-23",
+      "end_date": "2025-12-23",
+      "budget": 2000,
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "status": "Concluído",
+      "cost": 500,
+      "services": [
+        {
+          "name": "API",
+          "cost": 500,
+          "description": "API PAGA PARA O PROJETO",
+          "id": "0b24fd53-5f40-4821-bf00-a5618b087966"
+        }
+      ]
+    },
+    {
+      "id": "62f6",
+      "name": "Notas Bot",
+      "start_date": "2025-11-23",
+      "end_date": "2025-12-23",
+      "budget": 2000,
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "status": "Concluído",
+      "cost": 500,
+      "services": [
+        {
+          "name": "João",
+          "cost": 500,
+          "description": "API",
+          "id": "8caa997c-1e88-42cf-9a31-124946ced3ca"
+        }
+      ]
+    },
+    {
+      "id": "28bd",
+      "name": "ARTUR",
+      "start_date": "2025-11-06",
+      "end_date": "2025-11-09",
+      "budget": 590,
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "status": "Em Andamento",
+      "cost": 333.33,
+      "services": [
+        {
+          "name": "Estágiario",
+          "cost": 333.33,
+          "description": "sdsd",
+          "id": "5c186ca3-250b-49e4-810d-4d6bd1baa12c"
+        }
+      ]
     }
   ],
   "categories": [

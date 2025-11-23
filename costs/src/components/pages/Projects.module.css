@@ -1,7 +1,7 @@
 .project_container {
     width: 100%;
     padding: 2em;
-    min-height: 70vh; /* Garante altura mínima */
+    min-height: 70vh;
 }
 
 .title_container {
@@ -10,10 +10,23 @@
     align-items: center;
     margin-bottom: 2em;
     padding-bottom: 1em;
-    border-bottom: 1px solid #444; /* Linha sutil para separar o cabeçalho */
+    border-bottom: 1px solid #444;
 }
 
 .title_container h1 {
     font-size: 2.5em;
     color: var(--text-color);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .project_container { padding: 1em; }
+    
+    .title_container {
+        flex-direction: column;
+        gap: 1em;
+        text-align: center;
+    }
+    
+    .title_container h1 { font-size: 2em; }
 }

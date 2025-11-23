@@ -16,7 +16,9 @@ function Home() {
             <div className={styles.content_right}>
                 <img src={savings} alt="Costs Manager" className={styles.hero_image} />
             </div>
+            <div className={styles.empty}></div>
         </section>
+        
     );
 }
 

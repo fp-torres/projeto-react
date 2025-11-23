@@ -1,42 +1,102 @@
 .project_card {
-    padding: 1.5em;
-    border: 1px solid transparent;
+    padding: 2em;
+    border: 1px solid #777;
     border-radius: 10px;
-    width: 23%; /* Ajuste fino para caber 4 linhas */
-    margin: 1%;
-    background-color: var(--secondary-color); /* Fundo Cinza Azulado */
+    width: 30%;
+    margin: 1.5%;
+    background-color: var(--secondary-color);
     color: var(--text-color);
     transition: 0.3s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    min-height: 350px;
 }
 
+/* HOVER GENÉRICO:
+   - Mantemos o movimento (transform)
+   - Mantemos a sombra
+   - REMOVEMOS a cor da borda daqui (para não forçar amarelo em tudo)
+*/
 .project_card:hover {
-    transform: translateY(-5px); /* Flutua ao passar o mouse */
-    border-color: var(--accent-color); /* Borda dourada aparece */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
 }
+
+/* --- Status Colors & Hovers Específicos --- */
+
+/* 1. EM ANDAMENTO (Amarelo) */
+.ongoing_border { 
+    border-left: 8px solid #f1c40f; 
+}
+.ongoing_border:hover {
+    border-color: #f1c40f; /* Borda inteira fica amarela ao passar o mouse */
+}
+
+/* 2. CONCLUÍDO (Verde) */
+.finished_border { 
+    border-left: 8px solid #2ecc71; 
+}
+.finished_border:hover {
+    border-color: #2ecc71; /* Borda inteira fica verde ao passar o mouse */
+}
+
+/* 3. ATRASADO (Vermelho) */
+.late_border { 
+    border-left: 8px solid #e74c3c; 
+}
+.late_border:hover {
+    border-color: #e74c3c; /* Borda inteira fica vermelha ao passar o mouse */
+}
+
 
 .project_card h4 {
-    background-color: transparent; /* Removi o fundo preto antigo */
-    color: var(--accent-color); /* Título Dourado */
-    margin-bottom: 1em;
-    font-size: 1.4em;
+    background-color: transparent;
+    color: var(--accent-color);
+    margin-bottom: 1.5em;
+    font-size: 1.6em;
     font-weight: bold;
     border-bottom: 1px solid #444;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.8em;
+    text-transform: capitalize;
+}
+
+.card_content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .card_content p {
     color: var(--text-secondary);
-    margin-bottom: 1em;
-    font-size: 0.95em;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    line-height: 1.4em;
 }
 
 .card_content span {
     font-weight: bold;
     color: var(--text-color);
+    margin-right: 5px;
+}
+
+/* --- Datas --- */
+.date_info {
+    font-size: 0.9em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.date_info p {
+    margin: 0;
 }
 
 /* --- Bolinhas de Categoria --- */
@@ -47,31 +107,54 @@
 
 .category {
     display: block;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    margin-right: 8px;
-    box-shadow: 0 0 5px currentColor; /* Brilho da própria cor */
+    margin-right: 10px;
+    box-shadow: 0 0 5px currentColor;
 }
 
 .infra { background-color: #ffaebc; color: #ffaebc; }
 .desenvolvimento { background-color: #a0e7e5; color: #a0e7e5; }
-.designer { background-color: #b4f8c8; color: #b4f8c8; }
+.designer, .design { background-color: #b4f8c8; color: #b4f8c8; } 
 .planejamento { background-color: #fbe7c6; color: #fbe7c6; }
+
+/* --- Status Indicadores (Texto e Bolinha) --- */
+.status_text {
+    margin-top: 10px;
+    font-size: 0.95em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.status_indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+/* As cores das bolinhas internas */
+.ongoing { background-color: #f1c40f; box-shadow: 0 0 8px #f1c40f; color: #f1c40f; }
+.finished { background-color: #2ecc71; box-shadow: 0 0 8px #2ecc71; color: #2ecc71; }
+.late { background-color: #e74c3c; box-shadow: 0 0 8px #e74c3c; color: #e74c3c; }
 
 /* --- Botões de Ação --- */
 .project_card_actions {
-    margin-top: 1.5em;
+    margin-top: 2em;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Separa os botões */
+    justify-content: flex-start;
+    gap: 1em;
 }
 
 .btn_edit, .btn_remove {
     text-decoration: none;
     border: none;
-    font-size: 0.9em;
-    padding: 0.6em 1em;
+    font-size: 0.95em;
+    padding: 0.7em 1.2em;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -84,7 +167,6 @@
     margin-right: 0.5em;
 }
 
-/* Botão Editar (Estilo Outline) */
 .btn_edit {
     background-color: transparent;
     border: 1px solid var(--text-secondary);
@@ -97,10 +179,10 @@
     background-color: rgba(255, 211, 105, 0.1);
 }
 
-/* Botão Excluir (Estilo Danger Suave) */
 .btn_remove {
     background-color: transparent;
-    color: #ff6b6b; /* Vermelho suave */
+    color: #ff6b6b;
+    border: 1px solid #ff6b6b;
 }
 
 .btn_remove:hover {
@@ -108,11 +190,22 @@
     color: #fff;
 }
 
-/* Responsividade dos Cards */
-@media (max-width: 1100px) {
-    .project_card { width: 48%; }
+/* Descrição do serviço */
+.service_desc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.3em;
+    margin-top: 0.5em;
+    background-color: rgba(0,0,0,0.2);
+    padding: 0.8em;
+    border-radius: 5px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 1200px) {
+    .project_card { width: 47%; }
+}
+
+@media (max-width: 750px) {
     .project_card { width: 100%; margin: 1em 0; }
 }
