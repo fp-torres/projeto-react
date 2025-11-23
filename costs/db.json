@@ -26,13 +26,16 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 22.22,
+      "cost": null,
       "services": [
         {
           "name": "Estágiario",
           "cost": 22.22,
           "description": "TESTE",
           "id": "9ea28981-f892-43a7-871f-74766c6cfa36"
+        },
+        {
+          "id": "f2ef853c-00cb-497b-8ede-57d4667e8073"
         }
       ]
     },
