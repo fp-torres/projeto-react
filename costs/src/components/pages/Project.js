@@ -10,18 +10,22 @@ import ProjectForm from '../project/ProjectForm';
 import Message from '../layout/Message';
 import ServiceForm from '../service/ServiceForm';
 import ServiceCard from '../service/ServiceCard';
-import ProjectPieChart from '../project/ProjectPieChart'; // Gráfico de Pizza aqui!
+import ProjectPieChart from '../project/ProjectPieChart';
+import ProjectSearchBar from '../project/ProjectSearchBar';
 
 function Project() {
     const { id } = useParams();
-    const [project, setProject] = useState(null);
+    
+    const [project, setProject] = useState([]);
     const [services, setServices] = useState([]);
     const [showProjectForm, setShowProjectForm] = useState(false);
     const [showServiceForm, setShowServiceForm] = useState(false);
     const [message, setMessage] = useState('');
     const [type, setType] = useState('');
+    
 
     useEffect(() => {
+        // Timeout apenas para simular o loading do projeto
         setTimeout(() => {
             fetch(`http://localhost:5001/projects/${id}`, {
                 method: "GET",
@@ -30,7 +34,7 @@ function Project() {
             .then((resp) => resp.json())
             .then((data) => {
                 setProject(data);
-                setServices(data.services || []);
+                setServices(data.services || []); // Garante que services seja um array
             })
             .catch((err) => console.log(err));
         }, 1000);
@@ -38,11 +42,14 @@ function Project() {
 
     function editPost(project) {
         setMessage(''); 
+        
+        // Validação: Orçamento não pode ser menor que o custo
         if (project.budget < project.cost) {
             setMessage("O orçamento não pode ser menor que o custo do projeto!");
             setType("error");
             return false;
         }
+
         fetch(`http://localhost:5001/projects/${project.id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
@@ -50,7 +57,7 @@ function Project() {
         })
         .then((resp) => resp.json())
         .then((data) => {
-            setProject(data);       
+            setProject(data);      
             setShowProjectForm(false);
             setMessage("Projeto atualizado com sucesso!");
             setType("success");
@@ -60,11 +67,15 @@ function Project() {
 
     function createService(project) {
         setMessage(''); 
+        
+        // Pega o último serviço adicionado
         const lastService = project.services[project.services.length - 1];
         lastService.id = uuidv4();
+        
         const lastServiceCost = lastService.cost;
         const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost);
 
+        // Validação: Se o novo serviço ultrapassa o orçamento
         if (newCost > parseFloat(project.budget)) {
             setMessage("Orçamento ultrapassado, verifique o valor do serviço!");
             setType("error");
@@ -72,6 +83,7 @@ function Project() {
             return false;
         }
 
+        // Adiciona o custo do serviço ao custo total do projeto
         project.cost = newCost;
 
         fetch(`http://localhost:5001/projects/${project.id}`, {
@@ -81,8 +93,8 @@ function Project() {
         })
         .then((resp) => resp.json())
         .then((data) => {
-            setProject(data);       
-            setServices(data.services); // Atualizando lista visual
+            setProject(data);      
+            setServices(data.services); 
             setShowServiceForm(false);
             setMessage("Serviço adicionado com sucesso!");
             setType("success");
@@ -93,6 +105,7 @@ function Project() {
     function removeService(id, cost) { 
         const servicesUpdated = project.services.filter((service) => service.id !== id);
         const projectUpdated = project;
+        
         projectUpdated.services = servicesUpdated;
         projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost);
 
@@ -103,7 +116,7 @@ function Project() {
         })
         .then((resp) => resp.json())
         .then((data) => {
-            setProject(projectUpdated);       
+            setProject(projectUpdated);      
             setServices(servicesUpdated);
             setMessage("Serviço removido com sucesso!");
             setType("success");
@@ -116,13 +129,13 @@ function Project() {
 
     return (
         <>
-            {project && project.name ? (
+            {project.name ? (
                 <div className={styles.project_details}>
                     <Container customClass="column">
                         
                         {message && <Message type={type} msg={message} />}
                        
-                        {/* SEÇÃO 1: CARD DO PROJETO + GRÁFICO DE PIZZA */}
+                        {/* --- ÁREA SUPERIOR: DADOS DO PROJETO --- */}
                         <div className={styles.details_container}>
                             <div className={styles.details_content}>
                                 <div className={styles.header_row}>
@@ -151,7 +164,7 @@ function Project() {
                                 )}
                             </div>
                             
-                            {/* AQUI ESTÁ O GRÁFICO DE PIZZA ESPECÍFICO DESTE PROJETO */}
+                            {/* --- GRÁFICO DE PIZZA --- */}
                             {!showProjectForm && (
                                 <div className={styles.details_chart}>
                                     <ProjectPieChart budget={project.budget} cost={project.cost} />
@@ -159,7 +172,7 @@ function Project() {
                             )}
                         </div>
                         
-                        {/* SEÇÃO 2: ADICIONAR SERVIÇO */}
+                        {/* --- ÁREA: ADICIONAR SERVIÇOS --- */}
                         <div className={styles.service_form_container}>
                             <div className={styles.header_row}>
                                 <h2>Adicione um serviço:</h2>
@@ -178,7 +191,7 @@ function Project() {
                             </div>
                         </div>
                         
-                        {/* SEÇÃO 3: LISTA DE SERVIÇOS */}
+                        {/* --- LISTA DE SERVIÇOS --- */}
                         <h2>Serviços</h2>
                         <Container customClass="start">
                             {services.length > 0 && 
